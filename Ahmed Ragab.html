@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Professional web design and development services by ElSheikh">
+    <title>ElSheikh | Web Design & Development</title>
+    <style>
+        :root {
+            --primary: #121212;
+            --secondary: #BB86FC;
+            --accent: #03DAC6;
+            --text: #E1E1E1;
+            --text-secondary: #A0A0A0;
+            --surface: #1E1E1E;
+            --background: #121212;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text);
+            line-height: 1.6;
+            background-color: var(--background);
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), #1F1B24);
+            color: var(--text);
+            padding: 100px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        nav {
+            background-color: var(--surface);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        
+        .logo {
+            color: var(--text);
+            font-weight: 700;
+            font-size: 1.8rem;
+            padding: 15px 0;
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+        
+        .logo span {
+            color: var(--secondary);
+            font-weight: 800;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        nav ul li a {
+            color: var(--text);
+            padding: 20px 15px;
+            text-decoration: none;
+            display: block;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        nav ul li a:hover {
+            color: var(--secondary);
+        }
+        
+        .hero-btn {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: #000;
+            padding: 14px 32px;
+            margin-top: 25px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid var(--secondary);
+            box-shadow: 0 4px 15px rgba(187, 134, 252, 0.3);
+        }
+        
+        .hero-btn:hover {
+            background-color: transparent;
+            color: var(--secondary);
+            transform: translateY(-2px);
+        }
+        
+        main {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+        
+        section {
+            margin-bottom: 100px;
+        }
+        
+        h2 {
+            color: var(--text);
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+            border-radius: 2px;
+        }
+        
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .service-card {
+            background-color: var(--surface);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+            border-color: rgba(187, 134, 252, 0.2);
+        }
+        
+        .service-img {
+            height: 200px;
+            background: linear-gradient(135deg, #1F1B24, #121212);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--secondary);
+            font-size: 3.5rem;
+        }
+        
+        .service-content {
+            padding: 30px;
+        }
+        
+        .service-content h3 {
+            color: var(--text);
+            margin-top: 0;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .service-content p {
+            color: var(--text-secondary);
+        }
+        
+        .portfolio {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .portfolio-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            height: 280px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        .portfolio-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .portfolio-item:hover .portfolio-img {
+            transform: scale(1.1);
+        }
+        
+        .portfolio-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.9));
+            color: white;
+            padding: 25px;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .portfolio-item:hover .portfolio-overlay {
+            transform: translateY(0);
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .about-text {
+            padding-right: 30px;
+        }
+        
+        .about-text p {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+        
+        .about-image {
+            background: linear-gradient(135deg, #1F1B24, #121212);
+            height: 450px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--secondary);
+            font-size: 3rem;
+            border: 1px solid rgba(255,255,255,0.05);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+        }
+        
+        .team {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .team-member {
+            background-color: var(--surface);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+        }
+        
+        .team-img {
+            height: 280px;
+            background: linear-gradient(135deg, #1F1B24, #121212);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--secondary);
+            font-size: 3.5rem;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        .team-info {
+            padding: 25px;
+        }
+        
+        .team-info h3 {
+            margin: 10px 0 5px;
+            color: var(--text);
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+        
+        .team-info p {
+            color: var(--secondary);
+            margin: 0;
+            font-weight: 500;
+        }
+        
+        .contact-form {
+            background-color: var(--surface);
+            padding: 50px;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        .form-group {
+            margin-bottom: 30px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 12px;
+            font-weight: 600;
+            color: var(--text);
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 15px;
+            background-color: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 1rem;
+            color: var(--text);
+            transition: all 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 2px rgba(187, 134, 252, 0.2);
+        }
+        
+        .form-group textarea {
+            min-height: 180px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background-color: var(--secondary);
+            color: #000;
+            border: none;
+            padding: 16px 40px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(187, 134, 252, 0.3);
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(187, 134, 252, 0.4);
+        }
+        
+        footer {
+            background-color: var(--surface);
+            color: var(--text);
+            padding: 80px 20px 40px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+        }
+        
+        .footer-section h3 {
+            margin-top: 0;
+            position: relative;
+            padding-bottom: 15px;
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+        
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+            border-radius: 2px;
+        }
+        
+        .footer-section p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+        
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary);
+            transform: translateX(5px);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 20px;
+            margin-top: 25px;
+        }
+        
+        .social-links a {
+            color: var(--text-secondary);
+            font-size: 1.4rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: var(--secondary);
+            transform: translateY(-3px);
+        }
+        
+        .contact-info {
+            margin-top: 20px;
+        }
+        
+        .contact-info p {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            color: var(--text-secondary);
+        }
+        
+        .contact-info i {
+            margin-right: 12px;
+            color: var(--secondary);
+            width: 20px;
+            text-align: center;
+        }
+        
+        .footer-bottom {
+            margin-top: 70px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        .education-info {
+            background-color: var(--surface);
+            padding: 40px;
+            border-radius: 12px;
+            margin-top: 60px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        .education-info h3 {
+            color: var(--secondary);
+            margin-top: 0;
+            font-size: 1.8rem;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .education-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .education-item {
+            padding: 20px;
+            background-color: rgba(255,255,255,0.03);
+            border-radius: 8px;
+            border-left: 4px solid var(--secondary);
+        }
+        
+        .education-item h4 {
+            color: var(--text);
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .education-item p {
+            color: var(--text-secondary);
+            margin: 5px 0;
+        }
+        
+        @media (max-width: 992px) {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-text {
+                padding-right: 0;
+                margin-bottom: 40px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            header {
+                padding: 80px 20px;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+                padding: 15px;
+            }
+            
+            nav ul {
+                width: 100%;
+                justify-content: space-around;
+                margin-top: 15px;
+                flex-wrap: wrap;
+            }
+            
+            nav ul li a {
+                padding: 15px 10px;
+                font-size: 0.9rem;
+            }
+            
+            .portfolio {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-form {
+                padding: 30px;
+            }
+            
+            .footer-content {
+                gap: 40px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header id="home">
+        <div class="header-content">
+            <h1 style="font-size: 3rem; margin-bottom: 20px;">Elevate Your Digital Presence</h1>
+            <p style="font-size: 1.2rem; max-width: 700px; margin: 0 auto;">ElSheikh delivers cutting-edge web solutions with a focus on performance, aesthetics, and user experience.</p>
+            <a href="#contact" class="hero-btn">Get Started Today</a>
+        </div>
+    </header>
+    
+    <nav>
+        <div class="nav-container">
+            <a href="#home" class="logo">El<span>Sheikh</span></a>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <main>
+        <section id="services">
+            <h2>Our Services</h2>
+            <p style="max-width: 700px; margin: 0 auto 30px; color: var(--text-secondary);">Comprehensive digital solutions designed to transform your online presence and drive business growth.</p>
+            
+            <div class="services">
+                <div class="service-card">
+                    <div class="service-img">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Custom Web Development</h3>
+                        <p>Tailored websites built with modern frameworks like React, Vue, and Node.js to meet your specific business requirements.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-img">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>UI/UX Design</h3>
+                        <p>Beautiful, intuitive interfaces designed to engage users and enhance their experience with your brand.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-img">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Responsive Design</h3>
+                        <p>Flawless performance across all devices and screen sizes, from desktop to mobile.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-img">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>E-Commerce Solutions</h3>
+                        <p>Powerful online stores with secure payment gateways, inventory management, and marketing tools.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-img">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>SEO Optimization</h3>
+                        <p>Increase your visibility and rank higher in search engine results with our proven strategies.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-img">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Web Hosting</h3>
+                        <p>Reliable, secure hosting with 99.9% uptime, automatic backups, and expert support.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="portfolio">
+            <h2>Our Portfolio</h2>
+            <p style="max-width: 700px; margin: 0 auto 30px; color: var(--text-secondary);">Explore our recent projects that showcase our expertise across various industries.</p>
+            
+            <div class="portfolio">
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&h=400&q=80" alt="Corporate Dashboard" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>Corporate Dashboard</h3>
+                        <p>Enterprise analytics platform with real-time data visualization</p>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&h=400&q=80" alt="E-Commerce Platform" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>E-Commerce Platform</h3>
+                        <p>Custom online store with advanced product filtering</p>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&h=400&q=80" alt="Restaurant Website" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>Restaurant Website</h3>
+                        <p>Interactive menu with online reservation system</p>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&h=400&q=80" alt="Healthcare Portal" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>Healthcare Portal</h3>
+                        <p>Patient management system with appointment scheduling</p>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&h=400&q=80" alt="Education Platform" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>Education Platform</h3>
+                        <p>Online learning management system with course tracking</p>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1506929562872-bb421503ef21?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&h=400&q=80" alt="Travel Agency" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>Travel Agency</h3>
+                        <p>Booking platform with destination guides and reviews</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="about">
+            <h2>About ElSheikh</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Founded in 2018, ElSheikh has grown from a small web design studio to a full-service digital agency serving clients worldwide. Our mission is to deliver exceptional digital experiences that drive measurable business growth.</p>
+                    <p>What sets us apart is our commitment to quality, attention to detail, and customer-centric approach. We don't just build websites - we create digital solutions that solve real business challenges and help our clients achieve their goals.</p>
+                    <p>Our team of designers, developers, and digital strategists work collaboratively to ensure every project exceeds expectations. We stay at the forefront of technology to deliver innovative solutions that give our clients a competitive edge.</p>
+                </div>
+                <div class="about-image">
+                    <i class="fas fa-lightbulb"></i>
+                </div>
+            </div>
+            
+            <h3 style="text-align: center; margin-top: 80px; margin-bottom: 40px;">Meet Our Team</h3>
+            <div class="team">
+                <div class="team-member">
+                    <div class="team-img">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="team-info">
+                        <h3>Ahmed ElSheikh</h3>
+                        <p>Founder & CEO</p>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="team-img">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="team-info">
+                        <h3>AHmed Reffat</h3>
+                        <p>Lead Developer</p>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="team-img">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <div class="team-info">
+                        <h3>Ahmed Sayed</h3>
+                        <p>UI/UX Designer</p>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="team-img">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="team-info">
+                        <h3>Ahmed ElAzhre</h3>
+                        <p>Digital Strategist</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Added Education Information Section -->
+            <div class="education-info">
+                <h3>Academic Information</h3>
+                <div class="education-details">
+                    <div class="education-item">
+                        <h4>University Information</h4>
+                        <p><strong>Faculty:</strong> Faculty of Education</p>
+                        <p><strong>University:</strong> Ain Shams University</p>
+                    </div>
+                    
+                    <div class="education-item">
+                        <h4>Course Details</h4>
+                        <p><strong>Course Name:</strong> Website Design</p>
+                        <p><strong>Professor:</strong> Prof. Dr. Mohamed Antar</p>
+                    </div>
+                    
+                    <div class="education-item">
+                        <h4>Student Information</h4>
+                        <p><strong>Student Name:</strong> Ahmed Ragab Hefnawey Mohamed</p>
+                        <p><strong>Student ID:</strong> 2314014</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="contact">
+            <h2>Get In Touch</h2>
+            <p style="max-width: 700px; margin: 0 auto 30px; color: var(--text-secondary);">Ready to discuss your project? Contact us today for a free consultation and quote.</p>
+            
+            <div class="contact-form">
+                <form>
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="service">Service Interested In</label>
+                        <select id="service">
+                            <option value="">Select a service</option>
+                            <option value="web-development">Web Development</option>
+                            <option value="web-design">Web Design</option>
+                            <option value="ecommerce">E-Commerce</option>
+                            <option value="seo">SEO Services</option>
+                            <option value="hosting">Web Hosting</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Project Details</label>
+                        <textarea id="message" required placeholder="Tell us about your project requirements, timeline, and budget..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About ElSheikh</h3>
+                <p>Professional web design and development agency creating custom digital solutions for businesses worldwide since 2018.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-dribbble"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Careers</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Services</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Web Development</a></li>
+                    <li><a href="#">UI/UX Design</a></li>
+                    <li><a href="#">E-Commerce</a></li>
+                    <li><a href="#">SEO Optimization</a></li>
+                    <li><a href="#">Web Hosting</a></li>
+                    <li><a href="#">Maintenance</a></li>
+                    <li><a href="#">Consulting</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <div class="contact-info">
+                    <p><i class="fas fa-map-marker-alt"></i> Shubra ElKhima,Cairo,Egypt</p>
+                    <p><i class="fas fa-phone"></i> +201119880367</p>
+                    <p><i class="fas fa-envelope"></i> info@elsheikh.dev</p>
+                    <p><i class="fas fa-clock"></i> Sun-Thu: 9AM - 6PM</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2023 ElSheikh Web Solutions. All Rights Reserved. | Designed by Ahmed Ragab Hefnawey</p>
+        </div>
+    </footer>
+</body>
+</html>
